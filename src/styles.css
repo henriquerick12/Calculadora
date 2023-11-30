@@ -60,6 +60,16 @@ body {
   cursor: pointer;
 }
 
+.btn-equals, .btn-clean {
+  border: 1px solid #000;
+  width: 60px;
+  height: 52px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .btn-yellow {
     background-color: rgb(245,146,62);
     color: #fff;

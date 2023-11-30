@@ -1,29 +1,26 @@
-import { numbers, operations, simbols } from "./data.js";
+(function () {
+  const screen = document.querySelector(".form__screen");
+  const buttons = document.querySelectorAll(".btn");
+  const clean = document.querySelector(".clean");
+  const equals = document.querySelector(".equals");
 
-const createNumbers = (array) => {
-    console.log(array)
-  const buttonNumber = document.createElement("button");
-
-  buttonNumber.classList.add("btn");
-
-  array.forEach((element) => {
-    //buttonNumber.innerHTML = element;
-    console.log(element)
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const value = e.target.dataset.num;
+      screen.value += value;
+    });
   });
 
-  return buttonNumber;
-};
-
-const renderButtons = (array) => {
-  const buttons = document.querySelector(".buttons__content");
-
-  buttons.innerHTML = "";
-
-  array.forEach((element) => {
-    const button = createNumbers(element);
-
-    buttons.appendChild(button);
+  equals.addEventListener("click", (e) => {
+    if (screen.value === "") {
+      screen.value = "";
+    } else {
+      let response = eval(screen.value);
+      screen.value = response;
+    }
   });
-};
 
-//renderButtons(numbers)
+  clean.addEventListener('click', (e) => {
+    screen.value = ""
+  })
+})();
